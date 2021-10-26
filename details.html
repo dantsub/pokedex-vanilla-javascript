@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokédex | Details</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="header__title"><a href="index.html">Pokéd<span class="header__title--color">ex</span></a></h1>
+      <div class="search">
+        <label class="search__label" for="">
+          <input  class="search__input shadow" aria-label="pokemon search" autocomplete="off" type="text" id="search" placeholder="Search...">
+          <i class="fa fa-search search__icon"></i>
+        </labelcñ>
+        <ul class="search__list">
+          <li class="search__item">
+            <a class="search__link" href="">Bulbasour</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <section class="details-container p-small">
+      <h2 class="sr-only">Details</h2>
+      <section class="card-container js-card-container">
+        <h6 class="sr-only">Pokemon card</h6>
+      </section>
+      <section class="tab js-tab-container">
+        <h2 class="sr-only">Details of pokemon</h2>
+        <nav role="tablist">
+          <h6 class="sr-only">Navigation tab</h6>
+          <ul class="tab__list js-tab">
+            <li data-tab-id="1" role="presentation" class="tab__item tab__item--is-active"><a role="tab" class="tab__link" href="#stats" id="tabStats">Stats</a></li>
+            <li data-tab-id="2" role="presentation" tabindex="-1" class="tab__item tab__item--both-border"><a role="tab" class="tab__link" href="#abilities" id="tabAbilities">Abilities</a></li>
+            <li data-tab-id="3" role="presentation" tabindex="-1" class="tab__item"><a role="tab" class="tab__link" href="#type-effectiveness" id="tabTypeEffectiveness">Type Effectiveness</a></li>
+          </ul>
+        </nav>
+        <section role="tabpanel" tabindex="0" id="stats" class="tab__content js-tab-stats tab__content--is-active" data-tab="1" aria-labelledby="tabStats">
+          <h2 class="sr-only">Stats of pokemon</h2>
+        </section>
+        <section role="tabpanel" tabindex="0" id="abilities" class="tab__content js-tab-abilities" data-tab="2" aria-labelledby="tabAbilities">
+        </section>
+        <section role="tabpanel" tabindex="0" id="type-effectiveness" class="tab__content" data-tab="3" aria-labelledby="tabTypeEffectiveness">
+          <h2 class="sr-only">Type effectiveness</h2>
+          <div class="powers">
+            <div class="powers__col">
+              <p>Normal</p>
+              <p>Fighting</p>
+              <p>Flying</p>
+              <p>Poison</p>
+              <p>Ground</p>
+              <p>Rock</p>
+            </div>
+            <div class="powers__col">
+              <p>Bug</p>
+              <p>Ghost</p>
+              <p>Steel</p>
+              <p>Fire</p>
+              <p>Water</p>
+              <p>Grass</p>
+            </div>
+            <div class="powers__col">
+              <p>Electric</p>
+              <p>Psychic</p>
+              <p>Ice</p>
+              <p>Dragon</p>
+              <p>Dark</p>
+              <p>Fairy</p>
+            </div>
+          </div>
+        </section>
+      </section>
+    </section>
+  </div>
+  <script type="module" src="./js/index.js"></script>
+</body>
+</html>

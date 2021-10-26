@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokédex | Poke-list</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="header__title"><a href="index.html">Pokéd<span class="header__title--color">ex</span></a></h1>
+      <div class="search">
+        <label class="search__label" for="">
+          <input  class="search__input shadow" aria-label="pokemon search" autocomplete="off" type="text" id="search" placeholder="Search...">
+          <i class="fa fa-search search__icon"></i>
+        </label>
+        <ul class="search__list">
+          <li class="search__item">
+            <a class="search__link" href="">Bulbasour</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <section class="filter-container js-filter-container p-small">
+      <h6 class="sr-only">Filters</h6>
+      <ul class="width-300">
+        <li class="filter shadow">
+          <a class="filter__name" href="#">
+            <span class="filter__text">Filter by type...</span>
+            <i class="fa fa-angle-down filter__icon"></i>
+          </a>
+          <ul class="filter__list filter__list--scroll js-filter-type">
+          </ul>
+        </li>
+      </ul>
+      <ul class="width-300">
+        <li class="filter shadow">
+          <a class="filter__name" href="#">
+            <span class="filter__text">Sort...</span>
+            <i class="fa fa-angle-down filter__icon"></i>
+          </a>
+          <ul class="filter__list js-filter-sort">
+            <li class="filter__item"><a class="filter__link" href="#" data-sort-by="byId" data-sort-order="asc">By number (asc)</a></li>
+            <li class="filter__item"><a class="filter__link" href="#" data-sort-by="byId" data-sort-order="desc">By number (desc)</a></li>
+            <li class="filter__item"><a class="filter__link" href="#" data-sort-by="byName" data-sort-order="asc">By name (asc)</a></li>
+            <li class="filter__item"><a class="filter__link" href="#" data-sort-by="byName" data-sort-order="desc">By name (desc)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section class="pokemon-container p-small js-container">
+      <h6 class="sr-only">List of pokémon</h6>
+    </section>
+  </div>
+
+  <div class="container loading-container">
+    <div class="loading js-loader">
+      <div class="loading__ball"></div>
+      <div class="loading__ball"></div>
+      <div class="loading__ball"></div>
+    </div>
+  </div>
+  <script type="module" src="./js/index.js"></script>
+</body>
+</html>
