@@ -25,6 +25,7 @@ class Pokedex {
   async getPokemons() {
     if (this.pagination === 0) {
       this.apiUrl = `${this.baseApiUrl}?limit=20&offset=0`;
+      this.pokemon = [];
     }
 
     if (!this.apiUrl) return;
@@ -44,7 +45,7 @@ class Pokedex {
       this.filterSort[this.sortSelected]();
     }
 
-    return collection;
+    return this.pokemon;
   }
 
   async getPokemonsByType(type) {
@@ -62,7 +63,7 @@ class Pokedex {
       this.filterSort[this.sortSelected]();
     }
 
-    return collection;
+    return this.pokemon;
   }
 
   async getListTypes() {

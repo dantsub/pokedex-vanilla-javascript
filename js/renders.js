@@ -1,38 +1,23 @@
 import { capitalize } from './utilities.js';
 
 
-const renderPokeList = async (pokedex, typeId=0) => {
+const renderPokeList = async (pokedex) => {
   const container = document.querySelector('.js-container');
   const loader = document.querySelector('.js-loader');
   if (!container) return;
 
-  let list;
-
-  if (pokedex.filterTypeActive && typeId !== 0) {
-      container.innerHTML = '';
-      list = await pokedex.getPokemonsByType(typeId);
-  }
-
-  if (!pokedex.filterTypeActive) {
-    if (pokedex.pagination === 0) {
-      container.innerHTML = '';
-      pokedex.pokemon = [];
-    }
-    list = await pokedex.getPokemons();
-  }
+  
+  let list = await pokedex.getPokemons();
 
   if (pokedex.filterSortActive) {
-    container.innerHTML = '';
-    list = pokedex.pokemon;
+    loader.style.display = 'none';
   }
+  container.innerHTML = '';
 
   for (let elem of list) {
     container.innerHTML += templateCard(elem);
   }
-
-  if (pokedex.filterTypeActive) {
-    loader.style.display = 'none';
-  }
+  loader.style.display = 'inline-block';
 }
 
 const renderDetails = async (pokedex) => {
@@ -100,14 +85,34 @@ const renderListTypes = async (pokedex) => {
   filter.innerHTML = template;
 };
 
-/* const renderPokemonByType = (pokedex) => {
+const renderPokemonSorted = (pokedex) => {
+  const pokeContainer = document.querySelector('.js-container');
+  pokeContainer.innerHTML = '';
+  const list = pokedex.pokemon;
+  for (let elem of list) {
+    pokeContainer.innerHTML += templateCard(elem);
+  }
+}
+
+const renderPokemonByType = async (pokedex, typeId=0) => {
   const pokeContainer = document.querySelector('.js-container');
   const loading = document.querySelector('.js-loader');
-  loading.style.display = 'inline-block';
+
   pokeContainer.innerHTML = '';
-  renderPokemon(pokedex);
+
+  if (typeId === 0) {
+    renderPokeList(pokedex);
+    return;
+  }
+
+  const list = await pokedex.getPokemonsByType(typeId);
+
+  for (let elem of list) {
+    pokeContainer.innerHTML += templateCard(elem);
+  }
+
   loading.style.display = 'none';
-}; */
+};
 
 const templateTypeList = ({ id, name }) => {
   return `
@@ -150,4 +155,4 @@ const templateCard = ({ id, name, sprite, types }) => {
   </article>
   `;
 };
-export { renderListTypes, renderDetails, cardRedirect, renderPokeList };
+export { renderListTypes, renderDetails, cardRedirect, renderPokeList, renderPokemonByType, renderPokemonSorted };

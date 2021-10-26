@@ -1,4 +1,4 @@
-import { renderPokeList } from "./renders.js";
+import { renderPokeList, renderPokemonByType, renderPokemonSorted } from "./renders.js";
 
 const filterByType = (pokedex) => {
   const filterContainer = document.querySelector('.js-filter-type');
@@ -18,7 +18,7 @@ const filterByType = (pokedex) => {
       loader.style.display = 'inline-block';
     }
 
-    renderPokeList(pokedex, typeId);
+    renderPokemonByType(pokedex, typeId);
   });
 }
 
@@ -36,8 +36,7 @@ const filterById = (pokedex) => {
     pokedex.sortSelected = by;
     pokedex.sortAsc = sortOrder[order];
     pokedex.filterSort[by]();
-
-    renderPokeList(pokedex);
+    renderPokemonSorted(pokedex);
   });
 }
 
